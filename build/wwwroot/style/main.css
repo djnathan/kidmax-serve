@@ -1,0 +1,20 @@
+::-ms-clear {
+  display: none;
+}
+[draggable] {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -webkit-user-drag: element;
+}
+body {
+  font-family: 'Roboto', Segoe UI, sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  cursor: default;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

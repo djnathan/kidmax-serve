@@ -1,0 +1,116 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 Hatch Ltd. All rights reserved.
+-->
+
+<html>
+
+<head>
+  <title>kidmax Serve</title>
+  <meta name="application-name" content="kidmax Serve">
+  <meta name="description" content="Volunteer management for kidmax" />
+  <meta name="author" content="Nathan Jory" />
+
+  <!-- Identify security policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self' data: gap: https://codepush.azurewebsites.net/;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' localhost:* https://*.azurewebsites.net http://*.msecnd.net https://*.msecnd.net;
+          connect-src 'self' ws://localhost:* http://localhost:* https://localhost:* https://*.azurewebsites.net https://login.microsoftonline.com https://login.windows.net https://graph.microsoft.com http://dc.services.visualstudio.com https://dc.services.visualstudio.com;
+          img-src 'self' data:;
+          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+          frame-src 'self' login.microsoftonline.com login.windows.net data: gap:;
+          font-src 'self' https://fonts.gstatic.com;
+          " />
+
+  <!-- Control how browsers present the application -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <!-- Cordova.js only available when packaged for mobile -->
+  <!--<script type="text/javascript" src="cordova.js"></script>-->
+
+  <!-- CONFIG -->
+  <script id="config-script" type="text/javascript" src="cfg/config.js"></script>
+
+  <!-- Initialize App Insights -->
+  <script type="text/javascript">
+    if (!window.cordova) {
+//       var appInsights = window.appInsights ||
+//         function (config) {
+//           function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
+//         }({
+//           instrumentationKey: window.baseproj.appInsights.instrumentationKey
+//         });
+// 
+//       window.appInsights = appInsights;
+//       appInsights.trackPageView();
+    }
+  </script>
+
+  <!-- Polymer requirements -->
+  <script src="lib/webcomponentsjs/webcomponents-lite.js"></script>
+
+  <!-- Import components -->
+  <link rel="import" href="components.html">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style/hatch-logo.min.css">
+  <link rel="stylesheet" href="style/main.min.css">
+</head>
+
+<body unresolved class="fullbleed vertical layout">
+  <ui-view class="flex"></ui-view>
+
+  <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="lib/ng-polymer-elements/ng-polymer-elements.min.js"></script>
+  <script type="text/javascript" src="lib/moment/min/moment.min.js"></script>
+
+  <!-- APP -->
+  <script type="text/javascript" src="scripts/app.js"></script>
+  <script type="text/javascript" src="scripts/app-routing.js"></script>
+  <script type="text/javascript" src="scripts/app-config.js"></script>
+  <script type="text/javascript" src="scripts/app-run.js"></script>
+
+  <!-- SERVICES -->
+  <script type="text/javascript" src="scripts/services/entity-manager-srvc.js"></script>
+
+  <!-- DIRECTIVES -->
+
+  <!-- CONTROLLERS -->
+  <script type="text/javascript" src="scripts/controllers/home-ctrl.js"></script>
+  <script type="text/javascript" src="scripts/controllers/volunteers-ctrl.js"></script>
+
+  <!-- FILTERS -->
+
+  <!-- STARTUP -->
+  <script type="text/javascript">
+    function startupTasks() {
+      angular.bootstrap(document, ['kidmaxServe']);
+    }
+
+    function onDeviceReady() {
+      console.log('DeviceReady fired.');
+      startupTasks();
+    }
+
+    if (window.cordova) {
+      document.addEventListener('deviceready', onDeviceReady, false);
+    }
+    else {
+      startupTasks();
+    }
+
+    window.addEventListener('WebComponentsReady', function(e) {
+      console.log('WebComponentsReady fired.');
+
+      document.querySelector('body').removeAttribute('unresolved');
+    });
+  </script>
+</body>
+</html>

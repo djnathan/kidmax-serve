@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ca.hatch.kidmaxServe" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>kidmax Serve</name>
+    <description>
+      Volunteer management for kidmax
+    </description>
+    <author email="nathan.jory@gmail.com">
+      Nathan Jory
+    </author>
+    <content src="index.html" />
+    
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <access origin="http://*/*" />
+    <access origin="https://*/*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    
+    <hook src="scripts/010_install_plugins.js" type="after_platform_add" />
+    
+    <preference name="StatusBarBackgroundColor" value="#004b87" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    
+    <platform name="android">
+        <preference name="xwalkVersion" value="15+" />
+        <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+        <preference name="xwalkMode" value="embedded" />
+        <preference name="xwalkMultipleApk" value="true" />
+        
+        <preference name="CodePushDeploymentKey" value="<YOUR ANDROID CODEPUSH KEY>" />
+        
+        <allow-intent href="market:*" />
+        <icon density="ldpi" src="res/android/icons/Icon-ldpi.png" />
+        <icon density="mdpi" src="res/android/icons/Icon-mdpi.png" />
+        <icon density="hdpi" src="res/android/icons/Icon-hdpi.png" />
+        <icon density="xhdpi" src="res/android/icons/Icon-xhdpi.png" />
+        <icon density="xxhdpi" src="res/android/icons/Icon-xxhdpi.png" />
+        <icon density="xxxhdpi" src="res/android/icons/Icon-xxxhdpi.png" />
+        <splash density="land-xhdpi" src="res/android/splash/land-xhdpi.png" />
+        <splash density="port-xhdpi" src="res/android/splash/port-xhdpi.png" />
+    </platform>
+    <platform name="ios">
+        <preference name="Orientation" value="all" />
+        <preference name="deployment-target" value="8.0" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="BackupWebStorage" value="local" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+        <preference name="DisallowOverscroll" value="true" />
+        
+        <preference name="CodePushDeploymentKey" value="<YOUR IOS CODEPUSH KEY>" />
+        
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <icon height="16" src="res/ios/icons/Icon-16.png" width="16" />
+        <icon height="24" src="res/ios/icons/Icon-24.png" width="24" />
+        <icon height="29" src="res/ios/icons/Icon-Small.png" width="29" />
+        <icon height="32" src="res/ios/icons/Icon-32.png" width="32" />
+        <icon height="40" src="res/ios/icons/Icon-40.png" width="40" />
+        <icon height="40" src="res/ios/icons/Icon-Small-40.png" width="40" />
+        <icon height="50" src="res/ios/icons/Icon-Small-50.png" width="50" />
+        <icon height="57" src="res/ios/icons/Icon.png" width="57" />
+        <icon height="58" src="res/ios/icons/Icon-Small@2x.png" width="58" />
+        <icon height="60" src="res/ios/icons/Icon-60.png" width="60" />
+        <icon height="64" src="res/ios/icons/Icon-64.png" width="64" />
+        <icon height="72" src="res/ios/icons/Icon-72.png" width="72" />
+        <icon height="76" src="res/ios/icons/Icon-76.png" width="76" />
+        <icon height="80" src="res/ios/icons/Icon-40@2x.png" width="80" />
+        <icon height="80" src="res/ios/icons/Icon-Small-40@2x.png" width="80" />
+        <icon height="87" src="res/ios/icons/Icon-Small@3x.png" width="87" />
+        <icon height="100" src="res/ios/icons/Icon-Small-50@2x.png" width="100" />
+        <icon height="114" src="res/ios/icons/Icon@2x.png" width="114" />
+        <icon height="120" src="res/ios/icons/Icon-60@2x.png" width="120" />
+        <icon height="120" src="res/ios/icons/Icon-120.png" width="120" />
+        <icon height="120" src="res/ios/icons/Icon-Small-40@3x.png" width="120" />
+        <icon height="144" src="res/ios/icons/Icon-72@2x.png" width="144" />
+        <icon height="152" src="res/ios/icons/Icon-76@2x.png" width="152" />
+        <icon height="152" src="res/ios/icons/Icon-152.png" width="152" />
+        <icon height="180" src="res/ios/icons/Icon-60@3x.png" width="180" />
+        <icon height="512" src="res/ios/icons/iTunesArtwork.png" width="512" />
+        <icon height="1024" src="res/ios/icons/iTunesArtwork@2x.png" width="1024" />
+        <splash height="480" src="res/ios/splash/Default~iphone.png" width="320" />
+        <splash height="768" src="res/ios/splash/Default-Landscape~ipad.png" width="1024" />
+        <splash height="960" src="res/ios/splash/Default@2x~iphone.png" width="640" />
+        <splash height="1024" src="res/ios/splash/Default-Portrait~ipad.png" width="768" />
+        <splash height="1136" src="res/ios/splash/Default-568h@2x~iphone.png" width="640" />
+        <splash height="1242" src="res/ios/splash/Default-Landscape-736h.png" width="2208" />
+        <splash height="1334" src="res/ios/splash/Default-667h.png" width="750" />
+        <splash height="1536" src="res/ios/splash/Default-Landscape@2x~ipad.png" width="2048" />
+        <splash height="2048" src="res/ios/splash/Default-Portrait@2x~ipad.png" width="1536" />
+        <splash height="2208" src="res/ios/splash/Default-736h.png" width="1242" />
+    </platform>
+</widget>

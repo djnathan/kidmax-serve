@@ -1,0 +1,16 @@
+{
+  "common": [
+    "https://github.com/Microsoft/cordova-plugin-code-push.git#master",
+    "cordova-plugin-network-information",
+    "cordova-plugin-battery-status",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-ms-appinsights"
+  ],
+  "androidOnly": [
+    "cordova-plugin-crosswalk-webview"
+  ],
+  "iosOnly": [
+    "cordova-plugin-disable-bitcode",
+    "cordova-plugin-disable-nsapptransportsecurity"
+  ]
+}
