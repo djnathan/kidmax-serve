@@ -7,11 +7,19 @@
     left: 0;
     background-color: #f5f5f5;
   }
+  
+  .view-home paper-toolbar .light {
+    font-weight: 300;
+  }
+  
+  .view-home paper-toolbar .heavy {
+    font-weight: 700;
+  }
 </style>
 
 <paper-scroll-header-panel class="view-home">
   <paper-toolbar>
-    <div class="title">kid<b>max</b> Serve</div>
+    <div class="title"><span class="light">kid</span><span class="heavy">max</span> Serve</div>
   </paper-toolbar>
   <ui-view></ui-view>
 </paper-scroll-header-panel>

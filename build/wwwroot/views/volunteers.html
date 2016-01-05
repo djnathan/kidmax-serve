@@ -4,54 +4,61 @@
   }
   
   .view-volunteers > paper-material {
-    padding: 16px;
     margin-bottom: 24px;
     background-color: #fff;
   }
   
-  .input-content.label-is-floating.paper-input-container label.gold-phone-input {
-    -webkit-transform: translate(-40px, -75%) scale(0.75);
-    transform: translate(-40px, -75%) scale(0.75);
+  .view-volunteers paper-listbox {
+    padding: 0;  
   }
   
-  paper-input, gold-email-input, gold-phone-input {
-    margin-bottom: 8px;    
+  .view-volunteers paper-icon-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
   
-  paper-checkbox {
-    margin: 16px 0;
+  .view-volunteers paper-fab {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
   }
-
+  
+  .view-volunteers .view-title {
+    margin-bottom: 16px;
+  }
+  
+  .avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ff4081;
+  }
 </style>
 
 <div class="view-volunteers">
-  <div class="paper-font-title">Volunteers</div>
+  <div class="view-title paper-font-title">Volunteers</div>
   
-  <paper-material class="volunteer-list">
-    <div ng-repeat="v in Volunteers">
-      <span class="paper-font-body2">{{v.name}}</span>
-    </div>
-  </paper-material>
+  <template is="dom-bind" id="viewVolunteersScope">
+    <paper-material class="volunteer-list">
+      <paper-listbox class="layout vertical">
+        <template is="dom-repeat" items="[[volunteers]]" as="v">
+          <paper-icon-item>
+            <div class="avatar" item-icon></div>
+            <paper-item-body three-line>
+              <div>[[v.name]]</div>
+              <div secondary>[[v.mail]]</div>
+              <div secondary>[[v.phone]]</div>
+            </paper-item-body>
+          </paper-icon-item>
+        </template>
+      </paper-listbox>
+    </paper-material>
+  </template>
   
-  <paper-material class="new-volunter-form">
-    <form id="newVolunteerForm" is="iron-form">
-      <paper-input label="Name" 
-                   required 
-                   auto-validate
-                   error-message="Required"
-                   ng-model="form.newVolunteer.name"></paper-input>
-
-      <gold-email-input required
-                        auto-validate
-                        error-message="Required"
-                        ng-model="form.newVolunteer.mail"></gold-email-input>
-
-      <gold-phone-input ng-model="form.newVolunteer.phone"></gold-phone-input>
-
-      <div><paper-checkbox ng-model="form.newVolunteer.securityCleared">Security Cleared?</paper-checkbox></div>
-      <div class="layout end-justified horizontal">
-        <paper-button raised ng-click="addVolunteer()">Add</paper-button>
-      </div>
-    </form>
-  </paper-material>
+  
+  <paper-fab icon="add" ng-click="getVolunteerDetails()"></paper-fab>
+  
+  <ui-view></ui-view>
 </div>

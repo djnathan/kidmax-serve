@@ -14,6 +14,12 @@ angular.module('kidmaxServe')
     templateUrl: 'views/volunteers.html',
     controller: 'VolunteersCtlr',
   })
+  .state('kms.volunteers.details', {
+    url: '{volunteerId}/',
+    params: { volunteerId: 'new' },
+    templateUrl: 'views/volunteer-details.html',
+    controller: 'VolunteerDetailsCtlr',
+  })
   ;
 }])
 ;

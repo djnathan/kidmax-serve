@@ -1,0 +1,47 @@
+﻿<style>
+  .input-content.label-is-floating.paper-input-container label.gold-phone-input {
+    -webkit-transform: translate(-40px, -75%) scale(0.75);
+    transform: translate(-40px, -75%) scale(0.75);
+  }
+  
+  paper-input, gold-email-input, gold-phone-input {
+    margin-bottom: 8px;    
+  }
+  
+  paper-checkbox {
+    margin: 16px 0;
+  }
+</style>
+
+<div class="view-volunteer-details">
+  <paper-dialog with-backdrop="true"
+                entry-animation="scale-up-animation"
+                exit-animation="fade-out-animation">
+    <form id="volunteerForm" is="iron-form">
+      <div class="paper-font-title">
+        <span ng-if="form.mode == 'new'">Add a</span><span ng-if="form.mode == 'edit'">Modify</span> volunteer      
+      </div>
+      <paper-input label="Name" 
+                    required 
+                    auto-validate
+                    error-message="Required"
+                    ng-model="volunteer.name"></paper-input>
+
+      <gold-email-input required
+                        auto-validate
+                        error-message="Required"
+                        ng-model="volunteer.mail"></gold-email-input>
+
+      <gold-phone-input ng-model="volunteer.phone"></gold-phone-input>
+
+      <div><paper-checkbox ng-model="volunteer.securityCleared">Security Cleared?</paper-checkbox></div>
+      <div class="buttons layout end-justified horizontal">
+        <paper-button dialog-dismiss
+                      ng-click="cancel()">Cancel</paper-button>
+        <paper-button raised
+                      class="primary"
+                      ng-click="addVolunteer()">Add</paper-button>
+      </div>
+    </form>
+  </paper-dialog>
+</div>
